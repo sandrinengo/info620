@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Index</title>
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+        <link href="css/custom.css" rel="stylesheet" type="text/css" />
+        <script src="js/jquery-3.7.1.min.js"></script>
+        <script src="js/bootstrap.js"></script>
+    </head>
+<body>
+    <div class="container margin-top-50px">
+        
+            <fieldset>
+                <legend>INFO 620</legend>
+            </fieldset>
+            <div class="card border-primary mt-4" style = "max-width: 42rem;">
+                <div class="card-header">
+                    <h4 class="card-title">Guess a Number</h4>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <div class="col col-8">
+                                <em>Press the following button to start the game</em>
+                            </div>
+                            <div class="col col-8 mt-2">
+                                <button type="button" id="btnStartGame" class="btn btn-primary">Start Game</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col col-8 mt-3">
+                                <em>Press the button below to start over</em>
+                            </div>
+                            <div class="col col-8 mt-2">
+                                <button type="button" id="btnResetGame" class="btn btn-primary" disabled>Reset Game</button>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3 mt-3">
+                            <input type="text" id="txtGuess" class="form-control">
+                            <button type="button" id="btnTryGuess" class="btn btn-primary" disabled>Try this guess</button>
+                          </div>
+                    </form>
+                </div>
+            </div>
+        
+    </div>
+</body>
+<script src="js/index.js"></script>
+</html>
