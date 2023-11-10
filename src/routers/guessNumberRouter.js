@@ -29,7 +29,7 @@ guessNumberRouter
 function getGameID(req) {
   //assign values to session counter
   initializeSessions(req);
-  return "10239384";//will ask how to retrieve this number in class. 
+  return generateRandomNumber(1, 1000000); 
 }
 
 function initializeSessions(req) {
@@ -48,7 +48,10 @@ function guessNumber(guessedNumber, req) {
     const maxNumber = 100;
     const randomNumber = req.session.randomNumber;
     let guessCounter = req.session.guessCounter;
+    //reassign the guessCounter session when we increase the counter by 1.
     req.session.guessCounter = guessCounter + 1;
+
+    //set the list of notification
     const notification = {
       Success: "Congratulations!!!! You won!!!!",
       Reset: "",
@@ -59,6 +62,7 @@ function guessNumber(guessedNumber, req) {
       High: "The guess of [GuessedNumber] is too high!",
       OutOfRange: "Please enter a number between 1 and 100"
     };
+
     if (guessCounter >= maxGuess) {
       //user has 5 times to guess, next wrong guess, the game end
       return [notification.DisplayCorrectNumber.replace("[RandomNumber]",randomNumber),"max"];
@@ -79,8 +83,9 @@ function guessNumber(guessedNumber, req) {
   return "Something went wrong";
 }
 
-function generateRandomNumber(from, to) {
-  return Math.floor(Math.random() * to) + from;
+function generateRandomNumber(min, max) {
+  return Math.floor(Math.random() * max) + min;
 }
 
+//export the function, so we can call it in app.js
 module.exports = guessNumberRouter;

@@ -74,7 +74,7 @@ function guessNumber() {
         alert("Please enter a number between 1111 and 100");
     }else{
         $.ajax({
-            url: 'http://localhost:4000/', // Replace with your server URL
+            url: 'http://localhost:4000/',
             method: 'POST',
             contentType: 'application/json',
             data: JSON.stringify({ guessedNumber: guessedNumber }),
